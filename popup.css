@@ -103,6 +103,12 @@ background-color: whitesmoke;
 .paragraph{
   padding:10px;
   margin:20px 0;
+  
+}
+.paragraph li{
+ margin:5px 0;
+ padding:20px 0;
+ border-bottom: 1px solid rgba(192, 192, 192, 0.137);;
 }
 #close {
   position: absolute;

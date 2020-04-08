@@ -65,8 +65,8 @@ req.onload = function (e) {
     illustration.src = s["Discipline Image"];
     time.innerHTML = final_date;
     title.innerHTML = s.Title;
-    if(s['Academic Level Image'] !== undefined){
-    academicImage.src = s["Academic Level Image"];
+    if (s['Academic Level Image'] !== undefined) {
+      academicImage.src = s["Academic Level Image"];
     }
     // card.href = s.Link;
     // card.target = "_blank"
@@ -77,6 +77,7 @@ req.onload = function (e) {
     card.dataset.title = s['Title']
     card.dataset.postedBy = s['Posted By']
     card.dataset.description = s["Responsibilities"]
+    responsibilites();
     card.dataset.country = s['Flag']
     card.dataset.location = s['Location']
     card.dataset.academicLevel = s['Academic Level']
@@ -287,7 +288,7 @@ function filter() {
 
 var max_date = 44118;
 var min_date = 43474;
-var current_max = 322;                                    ;
+var current_max = 322;;
 var current_min = -20;
 
 dragElement(document.getElementById("max"));
@@ -323,7 +324,7 @@ function dragElement(elmnt) {
       current_max = elmnt.offsetLeft - pos1;
       if (current_max <= 322 && current_max > current_min + 18) {
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        max_date = 43489 + current_max*2;
+        max_date = 43489 + current_max * 2;
         var get_date = ExcelDateToJSDate(max_date);
         var final_date = formatDate(get_date);
         document.getElementById("current_max_date").innerHTML = final_date
@@ -333,12 +334,12 @@ function dragElement(elmnt) {
       current_min = elmnt.offsetLeft - pos1;
       if (current_min < current_max - 20 && current_min > -21) {
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        min_date = 43489 + current_min*2;
+        min_date = 43489 + current_min * 2;
         var get_date = ExcelDateToJSDate(min_date);
         var final_date = formatDate(get_date);
         document.getElementById("current_min_date").innerHTML = final_date
       }
-  }
+    }
     // set the element's new position:
 
     filter_date();
@@ -489,4 +490,16 @@ function updatePage(cards, p) {
   }
 }
 
+function responsibilites() {
+  var cards = document.getElementsByClassName("card");
+  for (let i = 0; i < cards.length; i++) {
+    var description = cards[i].dataset.description;
+    description = description.split("<br>");
+    for (let j = 1; j < description.length; j++) {
+      description[j] = `<li>${description[j]} </li>`
+    }
+    cards[i].dataset.description = description;
+    cards[i].dataset.description = cards[i].dataset.description.replace(",", "")
 
+  }
+}
