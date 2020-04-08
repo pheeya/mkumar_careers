@@ -158,6 +158,7 @@ a {
 .pagination_buttons{
   display:flex;
   flex-wrap: wrap;
+  justify-content: center;
   color:white;
   border:1px solid rgba(156, 156, 156, 0.233);
   border-right: 0;
