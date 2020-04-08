@@ -499,7 +499,9 @@ function responsibilites() {
       description[j] = `<li>${description[j]} </li>`
     }
     cards[i].dataset.description = description;
-    cards[i].dataset.description = cards[i].dataset.description.replace(",", "")
+    cards[i].dataset.description = cards[i].dataset.description.replace(",", "");
+    cards[i].dataset.description = cards[i].dataset.description.replace("â€¢", "");
+    
 
   }
 }
