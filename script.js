@@ -480,29 +480,37 @@ function paginate(cards) {
   var chevL = document.createElement('img');
   chevR.src = "imgs/chevR.png"
   chevL.src = "imgs/chevR.png"
-  chevL.style.transform="rotate(180deg)";
+  chevL.style.transform = "rotate(180deg)";
 
-  chevR.id="chevR";
-  chevL.id="chevL";
-chevR.classList.add("chev");
-chevL.classList.add("chev");
-  if(document.getElementsByClassName("page_button").length>0){
+  chevR.id = "chevR";
+  chevL.id = "chevL";
+  chevR.classList.add("chev");
+  chevL.classList.add("chev");
+  if (document.getElementsByClassName("page_button").length > 0) {
     controls.appendChild(chevR);
     controls.appendChild(chevL);
-    var buttons_all =  document.getElementsByClassName("pagination_buttons")[0];
-  chevR.onclick = function(){
-buttons_all.scrollBy({
-  left:150,
-  behavior:'smooth'
-})
-  }
+    var buttons_all = document.getElementsByClassName("pagination_buttons")[0];
+    var button = buttons_all.getElementsByClassName("page_button");
+    var x=0;
+    chevR.onclick = function () {
+      if(x!==4){
+        x++;
+      var y = x*-297 + "px"
+    }
+for(let i=0;i<button.length;i++){
+button[i].style.transform = `translateX(${y})`
+}
+    }
 
-  chevL.onclick = function(){
-    buttons_all.scrollBy({
-      left:-150,
-      behavior:'smooth'
-    })
-      }
+    chevL.onclick = function () {
+      if(x!==0){
+        x--;
+      var y = x*-297 + "px"
+    }
+for(let i=0;i<button.length;i++){
+button[i].style.transform = `translateX(${y})`
+}
+    }
   }
 
 }
