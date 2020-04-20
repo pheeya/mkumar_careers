@@ -475,6 +475,36 @@ function paginate(cards) {
       console.log('ok')
     })
   }
+  var controls = document.getElementById("pagination_controls");
+  var chevR = document.createElement('img');
+  var chevL = document.createElement('img');
+  chevR.src = "imgs/chevR.png"
+  chevL.src = "imgs/chevR.png"
+  chevL.style.transform="rotate(180deg)";
+
+  chevR.id="chevR";
+  chevL.id="chevL";
+chevR.classList.add("chev");
+chevL.classList.add("chev");
+  if(document.getElementsByClassName("page_button").length>0){
+    controls.appendChild(chevR);
+    controls.appendChild(chevL);
+    var buttons_all =  document.getElementsByClassName("pagination_buttons")[0];
+  chevR.onclick = function(){
+buttons_all.scrollBy({
+  left:150,
+  behavior:'smooth'
+})
+  }
+
+  chevL.onclick = function(){
+    buttons_all.scrollBy({
+      left:-150,
+      behavior:'smooth'
+    })
+      }
+  }
+
 }
 
 
@@ -501,7 +531,6 @@ function responsibilites() {
     cards[i].dataset.description = description;
     cards[i].dataset.description = cards[i].dataset.description.replace(",", "");
     cards[i].dataset.description = cards[i].dataset.description.replace("â€¢", "");
-    
 
   }
 }

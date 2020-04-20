@@ -154,17 +154,39 @@ a {
   justify-content: center;
 }
 
+#pagination_controls{
+  position:relative;
+  padding:0 60px;
+}
 
+.chev{
+  position:absolute;
+width:45px;
+left:0;
+top:0;
+bottom:0;
+padding:15px 5px;
+margin:auto;
+cursor: pointer;
+transition:background-color .2s;
+}
+.chev:hover{
+  background-color:rgb(212, 208, 208);
+}
+#chevR{
+  right:0;
+  left:unset;
+}
 .pagination_buttons{
+  box-sizing: border-box;
   display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
   color:white;
   border:1px solid rgba(156, 156, 156, 0.233);
   border-right: 0;
   border-left: 0;
-  padding:10px;
+  padding:5px 0;
   margin:30px 0;
+  overflow: hidden;
 }
 .pagination_buttons .page_button{
   padding:10px 20px;
