@@ -437,6 +437,7 @@ const MAX_PER_PAGE = 8;
 var current_page = 1;
 // pagination function
 
+
 function paginate(cards) {
   document.getElementsByClassName("pagination_buttons")[0].innerHTML = ""
   current_page = 1;
@@ -493,9 +494,9 @@ function paginate(cards) {
     var button = buttons_all.getElementsByClassName("page_button");
     var x=0;
     chevR.onclick = function () {
-      if(x!==4){
+      if(x!==56){
         x++;
-      var y = x*-297 + "px"
+      var y = x*-300 + "px"
     }
 for(let i=0;i<button.length;i++){
 button[i].style.transform = `translateX(${y})`
@@ -505,7 +506,7 @@ button[i].style.transform = `translateX(${y})`
     chevL.onclick = function () {
       if(x!==0){
         x--;
-      var y = x*-297 + "px"
+      var y = x*-300 + "px"
     }
 for(let i=0;i<button.length;i++){
 button[i].style.transform = `translateX(${y})`
@@ -514,7 +515,6 @@ button[i].style.transform = `translateX(${y})`
   }
 
 }
-
 
 
 function updatePage(cards, p) {
